@@ -1,0 +1,66 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title O seu e-commerce preferido
+    link(rel="stylesheet", type="text/css", href="/stylesheets/estilo.css")
+  body
+    #area-cabecalho
+      #area-logo
+        h1
+          | Shop
+          span.branco Smart
+
+      #area-menu
+        a(href="/") Home
+        a(href="/nossosprodutos") Nossos Produtos
+        .dropdown
+          a(href="") Categorias
+          ul.submenu
+            li: a(href="/categorias/roupas") Roupas
+            li: a(href="/categorias/eletronicos") Eletrônicos
+            li: a(href="/categorias/acessorios") Acessórios
+
+    #area-principal
+      #area-postagens
+        .postagem
+          h2 Notebook Gamer
+          span.data-postagem ACER
+          .product-image
+            img(src="/images/notebookgamer.jpg")
+          p Notebook gamer potente com hardware de última geração, perfeito para rodar jogos AAA com alta performance e mobilidade.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 PC Gamer
+          span.data-postagem PICHAU
+          .product-image
+            img(src="/images/pcgamer.jpg", alt="Produto")
+          p PC gamer de alto desempenho com placa de vídeo dedicada, ideal para jogos pesados e gráficos em ultra resolução.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Headset Gamer
+          span.data-postagem HYPERX
+          .product-image
+            img(src="/images/headsetgamer.jpg")
+          p Headset gamer com som surround imersivo, microfone com cancelamento de ruído e conforto para longas sessões de jogo.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+      #area-lateral
+        .conteudo-lateral
+          h3 Categorias
+          a(href="/categorias/roupas") Roupas
+          br
+          a(href="/categorias/eletronicos") Eletrônicos
+          br
+          a(href="/categorias/acessorios") Acessórios
+
+      #rodape
+        | Pagamento 100% seguro. ShopSmart!!!

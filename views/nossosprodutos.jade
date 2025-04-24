@@ -10,19 +10,54 @@ html
         h1
           | Shop
           span.branco Smart
+
       #area-menu
         a(href="/") Home
-        a(href="/nossosprodutos") Nossos produtos
-        a(href="") Para você
-        a(href="") Promoções
+        a(href="/nossosprodutos") Nossos Produtos
+        .dropdown
+          a(href="") Categorias
+          ul.submenu
+            li: a(href="/categorias/roupas") Roupas
+            li: a(href="/categorias/eletronicos") Eletrônicos
+            li: a(href="/categorias/acessorios") Acessórios
 
     #area-principal
       #area-postagens
         .postagem
-          h2 Camiseta poliéster vermelha.
-          span.data-postagem Marca
+          h2 Notebook Gamer
+          span.data-postagem ACER
           .product-image
-            img(src="images/camisetavermelha.jpeg")
+            img(src="/images/notebookgamer.jpg")
+          p Notebook gamer potente com hardware de última geração, perfeito para rodar jogos AAA com alta performance e mobilidade.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 PC Gamer
+          span.data-postagem PICHAU
+          .product-image
+            img(src="/images/pcgamer.jpg", alt="Produto")
+          p PC gamer de alto desempenho com placa de vídeo dedicada, ideal para jogos pesados e gráficos em ultra resolução.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Headset Gamer
+          span.data-postagem HYPERX
+          .product-image
+            img(src="/images/headsetgamer.jpg")
+          p Headset gamer com som surround imersivo, microfone com cancelamento de ruído e conforto para longas sessões de jogo.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Camiseta poliéster vermelha.
+          span.data-postagem RENNER
+          .product-image
+            img(src="/images/camisetavermelha.jpeg")
           p Camiseta 100% poliéster, tamanhos variados.
           a(href="--") Comprar
           a(href="--")
@@ -30,20 +65,50 @@ html
 
         .postagem
           h2 Calça Jeans
-          span.data-postagem Marca
+          span.data-postagem LEVI'S
           .product-image
-            img(src="images/calcajeans.jpeg", alt="Produto")
-          p Tamanhos variados
+            img(src="/images/calcajeans.jpeg", alt="Produto")
+          p Calça Jeans, tamanhos variados.
           a(href="--") Comprar
           a(href="--")
             p Adicionar ao Carrinho
 
         .postagem
-          h2 Camiseta poliéster vermelha.
-          span.data-postagem Marca
+          h2 Bermuda Cargo
+          span.data-postagem OPHICINA
           .product-image
-            img(src="images/camisetavermelha.jpeg")
-          p Camiseta 100% poliéster, tamanhos variados.
+            img(src="/images/bermudacargo.jpg")
+          p Bermuda cargo estilosa e funcional, com múltiplos bolsos e tecido resistente, ideal para o dia a dia e aventuras ao ar livre.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Colar de esmeralda   
+          span.data-postagem PANDORA
+          .product-image
+            img(src="/images/colaresmeralda.jpg")
+          p Colar de esmeralda deslumbrante, com pedra central vibrante que traz luxo e sofisticação a qualquer ocasião especial.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Pulseira de pérola
+          span.data-postagem VIVARA
+          .product-image
+            img(src="/images/pulseiraperola.jpg", alt="Produto")
+          p Pulseira de pérola elegante e sofisticada, perfeita para adicionar um toque clássico e refinado ao seu visual.
+          a(href="--") Comprar
+          a(href="--")
+            p Adicionar ao Carrinho
+
+        .postagem
+          h2 Brinco de pérola
+          span.data-postagem PANDORA
+          .product-image
+            img(src="/images/brincoperola.jpg")
+          p Brinco de pérola delicado e atemporal, ideal para complementar looks elegantes com um charme sutil e refinado.
           a(href="--") Comprar
           a(href="--")
             p Adicionar ao Carrinho
@@ -51,11 +116,11 @@ html
       #area-lateral
         .conteudo-lateral
           h3 Categorias
-          a(href="") Roupas
+          a(href="/categorias/roupas") Roupas
           br
-          a(href="") Tecnologia
+          a(href="/categorias/eletronicos") Eletrônicos
           br
-          a(href="") Casa
+          a(href="/categorias/acessorios") Acessórios
 
       #rodape
         | Pagamento 100% seguro. ShopSmart!!!
