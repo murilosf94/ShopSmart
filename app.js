@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var router = express.Router();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -10,8 +11,21 @@ var produtosRouter= require('./routes/nossosprodutos');
 var acessoriosRouter = require('./routes/categorias/acessorios');
 var roupasRouter = require('./routes/categorias/roupas');
 var eletronicosRouter = require('./routes/categorias/eletronicos');
+const mysql = require('mysql2')
+const conection =  mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'pyke'
+})
+conection.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
-const port = 3000
+
+
+const port = 3000;
 
 var app = express();
 
@@ -33,6 +47,10 @@ app.use('/nossosprodutos',produtosRouter);
 app.use('/categorias/acessorios',acessoriosRouter);
 app.use('/categorias/roupas',roupasRouter);
 app.use('/categorias/eletronicos',eletronicosRouter);
+app.get("/select",(req,res)=>{
+  conection.query("SELECT * FROM usuarios",(err,result)=>{
+  res.send(result);})
+})
 
 
 // catch 404 and forward to error handler njio0iuhb~bçç
@@ -51,7 +69,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`);
+    
   })
 
 module.exports = app;
