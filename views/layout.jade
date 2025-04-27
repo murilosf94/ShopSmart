@@ -1,7 +1,53 @@
 doctype html
-html
+html(lang="pt-BR")
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title ShopSmart | O seu e-commerce preferido
+    link(rel="stylesheet", href="/stylesheets/estilo.css")
   body
-    block content
+    #area-cabecalho
+      #area-logo
+        h1
+          | Shop
+          span.branco Smart
+
+      #area-logo2 
+        .cadastro 
+          if !session.usuario
+            a(href="/login") Login
+            a(href="/register") Registrar
+          else
+            span.branco Bem-vindo, #{session.usuario.usuario}!
+          if session.usuario
+            a(href="/logout") Sair
+          if session.usuario && session.usuario.funcao === 'admin'
+            p.branco Você está logado como administrador.
+          if session.usuario && session.usuario.funcao === 'user'
+            p.branco Você está logado como usuário.
+          
+      #area-menu
+        a(href="/") Home
+        a(href="/nossosprodutos") Nossos Produtos
+        .dropdown
+          a(href="") Categorias
+          ul.submenu
+            li: a(href="/categorias/roupas") Roupas
+            li: a(href="/categorias/eletronicos") Eletrônicos
+            li: a(href="/categorias/acessorios") Acessórios
+        if session.usuario 
+          a(href="/carrinho") Carrinho
+          a(href="perfil") Meu Perfil
+          a(href="/pedidos") Meus Pedidos
+          a(href="/anunciar") Anunciar Produto
+        if session.usuario && session.usuario.funcao === 'admin'
+          a(href="dashboardadmin") Dashboard Administrador
+        
+
+    #area-principal
+      block content
+      
+
+
+    #rodape
+      p Pagamento 100% seguro • Entrega rápida • ShopSmart © 2025

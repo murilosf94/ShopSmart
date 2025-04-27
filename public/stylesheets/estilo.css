@@ -24,6 +24,11 @@ body{
 	padding: 10px;
 }
 
+#area-logo2{
+	padding: 5px;
+	font-size: 1em;
+}
+
 #area-principal{
 	width: 920px;
 	margin: 0px auto;
@@ -50,6 +55,14 @@ body{
     margin-bottom: 20px;
     background: white;
     box-sizing: border-box; /* Inclui o padding no tamanho total */
+}
+
+.cadastro{
+	float: right;
+	padding-top: 20px;
+	margin-bottom: 15px;
+	font-size: 1em;
+	text-align: center;
 }
 
 /* .postagem h2 {

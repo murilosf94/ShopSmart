@@ -1,0 +1,20 @@
+extends layout
+block content
+  .postagem
+    h1.corpadrao Login
+    if error
+      p(style="color: red") #{error}
+    form(action="/login", method="post")
+      div
+        label(for="usuario") Usuário:
+        input(type="text", name="usuario", id="usuario", required)
+      div
+        label(for="senha") Senha:
+        input(type="password", name="senha", id="senha", required)
+      button(type="submit") Entrar
+    if usuario
+      hr
+      h2 Bem-vindo!
+      p Olá #{usuario}!
+      p Você está logado como #{funcao}.
+      a(href="/logout") Sair

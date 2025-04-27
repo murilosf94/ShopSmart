@@ -1,52 +1,35 @@
-doctype html
-html(lang="pt-BR")
-  head
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title ShopSmart | O seu e-commerce preferido
-    link(rel="stylesheet", href="/stylesheets/estilo.css")
-  body
-    #area-cabecalho
-      #area-logo
-        h1
-          | Shop
-          span.branco Smart
+extends layout
+block content
+  .boasvindas
+    h1.corpadrao  Bem-vindo à ShopSmart!
+    p.
+      Sua experiência de compra é nossa prioridade! Descubra uma seleção incrível de produtos, desde moda até eletrônicos, com ofertas imperdíveis.
 
-      #area-menu
-        a(href="/") Home
-        a(href="/nossosprodutos") Nossos Produtos
-        .dropdown
-          a(href="") Categorias
-          ul.submenu
-            li: a(href="/categorias/roupas") Roupas
-            li: a(href="/categorias/eletronicos") Eletrônicos
-            li: a(href="/categorias/acessorios") Acessórios
+  section
+  #area-postagens
+    .postagem
+      a(href="/categorias/roupas")
+        h2 Moda
+      p.
+        As melhores roupas do mercado!!!
+            
+    .postagem
+      a(href="/categorias/eletronicos")
+        h2 Eletrônicos
+      p.
+        Os gadgets mais modernos chegaram! Visite nossa seção de tecnologia e eletrônicos e fique por dentro.
 
-    #area-principal
-      .boasvindas
-        h1.corpadrao  Bem-vindo à ShopSmart!
-        p.
-          Sua experiência de compra é nossa prioridade! Descubra uma seleção incrível de produtos, desde moda até eletrônicos, com ofertas imperdíveis.
+    .postagem
+      a(href="/categorias/acessorios")
+        h2 Acessórios
+      p.
+        O acessório perfeito você encontra aqui!!!
 
-      section#area-postagens
-        .postagem
-          a(href="/categorias/roupas")
-            h2 Moda
-          p.
-            As melhores roupas do mercado!!!
-                
-        .postagem
-          a(href="/categorias/eletronicos")
-            h2 Eletrônicos
-          p.
-            Os gadgets mais modernos chegaram! Visite nossa seção de tecnologia e eletrônicos e fique por dentro.
-
-        .postagem
-          a(href="/categorias/acessorios")
-            h2 Acessórios
-          p.
-            O acessório perfeito você encontra aqui!!!
-
-
-    #rodape
-      p Pagamento 100% seguro • Entrega rápida • ShopSmart © 2025
+  #area-lateral
+    .conteudo-lateral
+      h2 Nossas Ofertas
+      ul
+        li Ofertas imperdíveis para você!
+        li Frete grátis em compras acima de R$ 200,00
+        li Descontos especiais para novos clientes
+        li Produtos selecionados com até 50% de desconto!
