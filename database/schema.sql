@@ -1,5 +1,5 @@
-CREATE DATABASE pyke;
-USE pyke;
+CREATE DATABASE ecommerce;
+USE ecommerce;
 
 CREATE TABLE usuarios(
     id integer PRIMARY KEY AUTO_INCREMENT,
