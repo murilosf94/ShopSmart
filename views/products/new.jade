@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h2 Novo Produto
+  form(method="POST", action="/products", enctype="multipart/form-data")
+    label Nome:
+    input(type="text", name="name", required)
+    br
+    label Descrição:
+    textarea(name="description")
+    br
+    label Preço:
+    input(type="number", step="0.01", name="price", required)
+    br
+    label Estoque:
+    input(type="number", name="stock", value="0")
+    br
+    label Imagem:
+    input(type="file", name="image", accept="image/*")
+    br
+    button(type="submit") Criar

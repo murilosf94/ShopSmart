@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h2= product.name
+  p Descrição: #{product.description}
+  p Preço: R$ #{product.price}
+  p Estoque: #{product.stock}
+  p Imagem: 
+    if product.imageUrl
+      img(src=product.imageUrl, width="200")
+    else
+      p Sem imagem disponível
+  a(href='/products') ← Voltar
+  a(href='/products/#{product.id}/edit') Editar
+
