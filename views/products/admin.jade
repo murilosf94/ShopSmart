@@ -22,3 +22,9 @@ block content
               | (sem imagem)
           td= p.name
           td= p.stock
+          td
+            a(href="/products/#{p.id}") Ver
+            a(href="/products/#{p.id}/edit") Editar
+            
+            form(method="POST", action="/products/#{p.id}?_method=DELETE", style="display:inline")
+              button(type="submit", onclick="return confirm('Excluir?')") Excluir

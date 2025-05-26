@@ -76,7 +76,7 @@ app.use('/categorias/roupas', roupasRouter);
 app.use('/categorias/eletronicos', eletronicosRouter);
 
 // CRUD de produtos
-app.use('/products', productsRouter);
+app.use('/products', estaLogado, productsRouter);
 
 // Rotas protegidas
 app.use('/users', estaLogado, usersRouter);

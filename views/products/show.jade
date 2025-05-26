@@ -1,15 +1,50 @@
+//- views/products/show.jade
 extends ../layout
 
 block content
-  h2= product.name
-  p Descrição: #{product.description}
-  p Preço: R$ #{product.price}
-  p Estoque: #{product.stock}
-  p Imagem: 
-    if product.imageUrl
-      img(src=product.imageUrl, width="200")
-    else
-      p Sem imagem disponível
-  a(href='/products') ← Voltar
-  a(href='/products/#{product.id}/edit') Editar
+  .product-page
+    //- Coluna da imagem
+    .product-page__image
+      if product.imageUrl
+        img(src=product.imageUrl, alt=product.name, width="200")
+      else
+        img(src='/static/img/no-image.png', alt='Sem imagem', width="200" )
 
+    //- Coluna dos detalhes
+    .product-page__details
+      h2.product-page__title= product.name
+
+      .product-page__price
+        span.preco-label Preço:
+        span.preco-valor R$ #{product.price}
+
+      if product.stock > 0
+        .product-page__stock Em estoque: #{product.stock}
+      else
+        .product-page__stock.product-page__stock--out Esgotado
+
+      .product-page__description
+        h3 Descrição:
+          p= product.description
+
+      form.product-page__buy-form(method='POST', action='/carrinho/add')
+        //- passa o id do produto e quantidade
+        input(type='hidden', name='productId', value=product.id)
+        .product-page__quantity
+          label(for='quantity') Quantidade:
+          input#quantity(
+            type='number',
+            name='quantity',
+            value='1',
+            min='1',
+            max=product.stock > 0 ? product.stock : 1
+          )
+        if product.stock > 0
+          button(type='submit', class='btn btn--primary') Adicionar ao carrinho
+        else
+          button(type='button', class='btn btn--disabled', disabled) Indisponível
+
+      .product-page__actions
+        a.btn(href='/products') ← Voltar
+        if session.usuario && session.usuario.funcao === 'admin'
+          a.btn(href='/products/#{product.id}/edit') Editar

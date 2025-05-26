@@ -28,8 +28,7 @@ html(lang="pt-BR")
           
       #area-menu
         a(href="/") Home
-        a(href="/products") Nossos Produtos
-        a(href="/products/new") criar produto
+        a(href="/nossosprodutos") Nossos Produtos
 
         .dropdown
           a(href="") Categorias
@@ -39,11 +38,10 @@ html(lang="pt-BR")
             li: a(href="/categorias/acessorios") Acessórios
         if session.usuario 
           a(href="/carrinho") Carrinho
-          a(href="perfil") Meu Perfil
+          a(href="products/new") Anunciar produto
           a(href="/pedidos") Meus Pedidos
-          a(href="/anunciar") Anunciar Produto
         if session.usuario && session.usuario.funcao === 'admin'
-          a(href="dashboardadmin") Dashboard Administrador
+          a(href="/dashboardadmin") Dashboard Administrador
         
 
     #area-principal

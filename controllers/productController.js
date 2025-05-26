@@ -50,7 +50,7 @@ exports.create = async (req, res, next) => {
       [name, description, price, stock, imageUrl]
     );
 
-    res.redirect('/products');
+    res.redirect('/nossosprodutos');
   } catch (err) {
     next(err);
   }
@@ -91,7 +91,7 @@ exports.update = async (req, res, next) => {
       [ name, description, price, stock, imageUrl, req.params.id ]
     );
 
-    res.redirect('/products');
+    res.redirect('/nossosprodutos');
   } catch (err) {
     next(err);
   }
@@ -106,7 +106,7 @@ exports.destroy = async (req, res, next) => {
   try {
     const { id } = req.params;
     await pool.execute('DELETE FROM products WHERE id = ?', [id]);
-    res.redirect('/products');
+    res.redirect('/nossosprodutos');
   } catch (err) {
     console.error(err);
     next(err);
