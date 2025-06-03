@@ -42,27 +42,31 @@ html(lang="pt-BR")
           a.nav-link(href="/contato") Contato
 
         .search-container
-          .search-icon 🔍
+          .search-icon
+            img(src="../images/icons/procurar.png", alt="Favoritos")
           input.search-input(type="text" placeholder="Buscar produtos...")
 
         .header-actions
           a.action-btn(href="#" title="Favoritos")
-            span.action-icon ❤️
+            span.action-icon
+              img(src="../images/icons/coracao.png", alt="Favoritos")
             .cart-badge 2
 
           a.action-btn(href="#" title="Notificações")
-            span.action-icon 🔔
+            span.action-icon
+              img(src="../images/icons/sino.png", alt="Notificacao")
             .notification-dot
 
           a.action-btn(href="/carrinho" title="Carrinho")
-            span.action-icon 🛒
+            span.action-icon
+              img(src="../images/icons/carrinho-de-compras.png", alt="Carrinho")
             .cart-badge 3
 
           if !session.usuario
             a.login-btn(href="/login") Login
             a.login-btn(href="/register") Registrar
           else
-            span.branco Bem-vindo, #{session.usuario.usuario}!
+            span.branco Olá, #{session.usuario.usuario}!
           if session.usuario && session.usuario.funcao === 'admin'
             p.branco Administrador account.
           if session.usuario
