@@ -4,15 +4,105 @@ html(lang="pt-BR")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title ShopSmart - Sua loja Online
-    link(rel="stylesheet", href="stylesheets/css")
+    link(rel="stylesheet", href="stylesheets/style.css")
   body
     header.header
-      //Barra superior
+      // Top Bar
       .top-bar
-        .top-bar-content 
+        .top-bar-content
           .contact-info
-            span (19) 99698-8600
-            span.contact-email shopsmart@email.com
+            span 📞 (11) 9999-9999
+            span.contact-email ✉️ contato@shopsmart.com
           .promo-info
-            span Frete grátis acima de R$ 199
-            span.promo-secure Compre com 100% de segurança
+            span 🚚 Frete grátis acima de R$ 200
+            span.promo-secure 🔒 Compra 100% segura
+
+      // Main Header
+      .main-header
+        .logo-container
+          a.logo-link(href="/")
+            .logo-icon S
+            .logo-text Shop<span class="logo-text-light">Smart</span>
+
+        nav.main-nav
+          a.nav-link(href="/") Home
+          a.nav-link(href="/nossosprodutos") Produtos
+          .dropdown
+            a.nav-link.dropdown-toggle(href="#") 
+              | Categorias 
+              span.dropdown-arrow ▼
+            .dropdown-menu
+              ul.submenu 
+                li
+                  a.dropdown-item(href="/categorias/roupas") Roupas
+                li
+                  a.dropdown-item(href="/categorias/eletronicos") Eletrônicos
+                li
+                  a.dropdown-item(href="/categorias/acessorios") Acessórios
+          a.nav-link(href="/contato") Contato
+
+        .search-container
+          .search-icon 🔍
+          input.search-input(type="text" placeholder="Buscar produtos...")
+
+        .header-actions
+          a.action-btn(href="#" title="Favoritos")
+            span.action-icon ❤️
+            .cart-badge 2
+
+          a.action-btn(href="#" title="Notificações")
+            span.action-icon 🔔
+            .notification-dot
+
+          a.action-btn(href="/carrinho" title="Carrinho")
+            span.action-icon 🛒
+            .cart-badge 3
+
+          if !session.usuario
+            a.login-btn(href="/login") Login
+            a.login-btn(href="/register") Registrar
+          else
+            span.branco Bem-vindo, #{session.usuario.usuario}!
+          if session.usuario && session.usuario.funcao === 'admin'
+            p.branco Administrador account.
+          if session.usuario
+            a.login-btn(href="/logout") Sair
+          //if session.usuario && session.usuario.funcao === 'user'
+            p.branco Você está logado como usuário.
+    main
+      block content
+
+    footer.footer
+      .footer-content
+        .footer-section
+          h3 ShopSmart
+          p.footer-description Sua experiência de compra é nossa prioridade. Encontre os melhores produtos com ofertas imperdíveis.
+
+        .footer-section
+          h3 Categorias
+          ul
+            li: a(href="/categorias/roupas") Moda
+            li: a(href="/categorias/eletronicos") Eletrônicos
+            li: a(href="/categorias/acessorios") Acessórios
+
+        .footer-section
+          h3 Atendimento
+          ul
+            li: a(href="/contato") Contato
+            li: a(href="#") FAQ
+            li: a(href="#") Trocas e Devoluções
+            li: a(href="#") Política de Privacidade
+
+        .footer-section
+          h3 Conecte-se
+          ul
+            li: a(href="#") Facebook
+            li: a(href="#") Instagram
+            li: a(href="#") Twitter
+            li: a(href="#") YouTube
+
+      .footer-bottom
+        p &copy; 2024 ShopSmart. Todos os direitos reservados.
+
+    script(src="/js/scripts.js")
+
