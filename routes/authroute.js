@@ -47,7 +47,8 @@ router.get('/register', (req, res) => {
 
 // POST /register
 router.post('/register', async (req, res) => {
-    const { usuario, senha, funcao } = req.body;
+    const { usuario, senha} = req.body;
+    const[funcao]="usuario";
     try {
       // 1) Gera hash da senha
       const hash = await bcrypt.hash(senha, 10);
