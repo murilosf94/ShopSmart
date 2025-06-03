@@ -49,6 +49,8 @@ exports.create = async (req, res, next) => {
        VALUES (?, ?, ?, ?, ?)`,
       [name, description, price, stock, imageUrl]
     );
+    
+    
 
     res.redirect('/nossosprodutos');
   } catch (err) {
