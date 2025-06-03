@@ -1,53 +1,112 @@
 doctype html
 html(lang="pt-BR")
   head
-    meta(charset="utf-8")
+    meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title ShopSmart | O seu e-commerce preferido
-    link(rel="stylesheet", href="/stylesheets/estilo.css")
+    title ShopSmart - Sua loja Online
+    link(rel="stylesheet", href="stylesheets/style.css")
   body
-    #area-cabecalho
-      #area-logo
-        h1
-          | Shop
-          span.branco Smart
+    header.header
+      // Top Bar
+      .top-bar
+        .top-bar-content
+          .contact-info
+            span 📞 (11) 9999-9999
+            span.contact-email ✉️ contato@shopsmart.com
+          .promo-info
+            span 🚚 Frete grátis acima de R$ 200
+            span.promo-secure 🔒 Compra 100% segura
 
-      #area-logo2 
-        .cadastro 
+      // Main Header
+      .main-header
+        .logo-container
+          a.logo-link(href="/")
+            .logo-icon S
+            .logo-text Shop<span class="logo-text-light">Smart</span>
+
+        nav.main-nav
+          a.nav-link(href="/") Home
+          a.nav-link(href="/nossosprodutos") Produtos
+          .dropdown
+            a.nav-link.dropdown-toggle(href="#") 
+              | Categorias 
+              span.dropdown-arrow ▼
+            .dropdown-menu
+              ul.submenu 
+                li
+                  a.dropdown-item(href="/categorias/roupas") Roupas
+                li
+                  a.dropdown-item(href="/categorias/eletronicos") Eletrônicos
+                li
+                  a.dropdown-item(href="/categorias/esportes") Esportes
+          a.nav-link(href="/contato") Contato
+
+        .search-container
+          .search-icon
+            img(src="../images/icons/procurar.png", alt="Favoritos")
+          input.search-input(type="text" placeholder="Buscar produtos...")
+
+        .header-actions
+          a.action-btn(href="#" title="Favoritos")
+            span.action-icon
+              img(src="../images/icons/coracao.png", alt="Favoritos")
+            .cart-badge 2
+
+          a.action-btn(href="#" title="Notificações")
+            span.action-icon
+              img(src="../images/icons/sino.png", alt="Notificacao")
+            .notification-dot
+
+          a.action-btn(href="/carrinho" title="Carrinho")
+            span.action-icon
+              img(src="../images/icons/carrinho-de-compras.png", alt="Carrinho")
+            .cart-badge 3
+
           if !session.usuario
-            a(href="/login") Login
-            a(href="/register") Registrar
+            a.login-btn(href="/login") Login
+            a.login-btn(href="/register") Registrar
           else
-            span.branco Bem-vindo, #{session.usuario.usuario}!
-          if session.usuario
-            a(href="/logout") Sair
+            span.branco Olá, #{session.usuario.usuario}!
           if session.usuario && session.usuario.funcao === 'admin'
-            p.branco Você está logado como administrador.
-          if session.usuario && session.usuario.funcao === 'user'
+            p.branco Administrador account.
+          if session.usuario
+            a.login-btn(href="/logout") Sair
+          //if session.usuario && session.usuario.funcao === 'user'
             p.branco Você está logado como usuário.
-          
-      #area-menu
-        a(href="/") Home
-        a(href="/nossosprodutos") Nossos Produtos
-
-        .dropdown
-          a(href="") Categorias
-          ul.submenu
-            li: a(href="/categorias/roupas") Roupas
-            li: a(href="/categorias/eletronicos") Eletrônicos
-            li: a(href="/categorias/acessorios") Acessórios
-        if session.usuario 
-          a(href="/carrinho") Carrinho
-          a(href="products/new") Anunciar produto
-          a(href="/pedidos") Meus Pedidos
-        if session.usuario && session.usuario.funcao === 'admin'
-          a(href="/dashboardadmin") Dashboard Administrador
-        
-
-    #area-principal
+    main
       block content
-      
 
+    footer.footer
+      .footer-content
+        .footer-section
+          h3 ShopSmart
+          p.footer-description Sua experiência de compra é nossa prioridade. Encontre os melhores produtos com ofertas imperdíveis.
 
-    #rodape
-      p Pagamento 100% seguro • Entrega rápida • ShopSmart © 2025
+        .footer-section
+          h3 Categorias
+          ul
+            li: a(href="/categorias/roupas") Moda
+            li: a(href="/categorias/eletronicos") Eletrônicos
+            li: a(href="/categorias/esportes") Esportes
+
+        .footer-section
+          h3 Atendimento
+          ul
+            li: a(href="/contato") Contato
+            li: a(href="#") FAQ
+            li: a(href="#") Trocas e Devoluções
+            li: a(href="#") Política de Privacidade
+
+        .footer-section
+          h3 Conecte-se
+          ul
+            li: a(href="#") Facebook
+            li: a(href="#") Instagram
+            li: a(href="#") Twitter
+            li: a(href="#") YouTube
+
+      .footer-bottom
+        p &copy; 2024 ShopSmart. Todos os direitos reservados.
+
+    script(src="/js/scripts.js")
+

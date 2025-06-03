@@ -9,9 +9,6 @@ CREATE TABLE usuarios(
     criado TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-INSERT INTO usuarios(usuario, senha, funcao)
-VALUES ('primeiraconta', 'gabriel', 'admin');
-
 
 CREATE TABLE products (
   id INT AUTO_INCREMENT PRIMARY KEY,

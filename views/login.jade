@@ -1,20 +1,66 @@
 extends layout
+
 block content
-  .postagem
-    h1.corpadrao Login
-    if error
-      p(style="color: red") #{error}
-    form(action="/login", method="post")
-      div
-        label(for="usuario") Usuário:
-        input(type="text", name="usuario", id="usuario", required)
-      div
-        label(for="senha") Senha:
-        input(type="password", name="senha", id="senha", required)
-      button(type="submit") Entrar
-    if usuario
-      hr
-      h2 Bem-vindo!
-      p Olá #{usuario}!
-      p Você está logado como #{funcao}.
-      a(href="/logout") Sair
+  .login-container
+    .login-card
+      // Logo/Header
+      .login-header
+        .logo-circle S
+        h1 Bem-vindo de volta!
+        p Entre em sua conta para continuar
+
+      // Login Form
+      .login-form-card
+        form#loginForm(method="post" action="/login")
+          // Username Field
+          .form-group
+            label(for="usuario") Usuário
+            .input-container
+              span.input-icon
+                img(src="../images/icons/do-utilizador.png", alt="")
+              input#usuario(
+                type="text" 
+                name="usuario" 
+                required 
+                placeholder="Digite seu usuário"
+              )
+
+          // Password Field
+          .form-group
+            label(for="senha") Senha
+            .input-container
+              span.input-icon
+                img(src="../images/icons/bloquear-alt.png", alt="")
+              input#senha(
+                type="password" 
+                name="senha" 
+                required 
+                placeholder="Digite sua senha"
+              )
+
+          // Submit Button
+          button.submit-btn(type="submit") Entrar
+
+          // Social Login
+          .social-login
+            .divider
+              span Ou continue com
+              .divider-line
+
+            .social-buttons
+              button.social-btn(type="button")
+                span 📧
+                | Google
+              
+              button.social-btn(type="button")
+                span 📱
+                | Facebook
+
+        // Register Link
+        .register-link
+          p
+            | Não tem uma conta? 
+            a(href="/register") Registre-se aqui
+
+  script(src="/js/login.js")
+  link(rel="stylesheet" href="../stylesheets/login.css")
