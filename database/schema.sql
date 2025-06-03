@@ -20,3 +20,15 @@ CREATE TABLE products (
   createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
   updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+CREATE TABLE carrinho(
+    id integer PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT,
+    id_products INT,
+    FOREIGN KEY (id_usuario) references usuarios(id),
+    FOREIGN KEY (id_products) references products(id),
+    quantidade INT,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+);

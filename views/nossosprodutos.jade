@@ -17,9 +17,9 @@ block content
               | (sem imagem)
 
         a(href="/products/#{p.id}") Comprar
-
-        a(href="/carrinho/add/#{p.id}")
-          p Adicionar ao Carrinho
+        if session.usuario
+          a(href="/carrinho/add/#{session.usuario.id}/#{p.id}")
+            p Adicionar ao Carrinho
 
 
         //- h2 Lista de Produtos

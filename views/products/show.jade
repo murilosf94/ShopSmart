@@ -27,7 +27,7 @@ block content
         h3 Descrição:
           p= product.description
 
-      form.product-page__buy-form(method='POST', action='/carrinho/add')
+      form.product-page__buy-form(method='POST', action='/carrinho/add/#{session.usuario.id}/#{product.id}')
         //- passa o id do produto e quantidade
         input(type='hidden', name='productId', value=product.id)
         .product-page__quantity

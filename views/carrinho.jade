@@ -1,3 +1,23 @@
 extends layout 
 block content
-    h1.corpadrao Carrinho de Compras
+
+  #area-postagens
+    each c in carrinho
+      each p in products
+        if c.id_products === p.id
+          .postagem
+            h2 #{p.name}
+
+            span.data-postagem R$ #{p.price}
+            span.quantidade #{c.quantidade}
+
+            .product-image
+                if p.imageUrl
+                    a(href="/products/#{p.id}")
+                    img(src=p.imageUrl)
+                else
+                    a(href="/products/#{p.id}")
+                    |   (sem imagem)
+
+                a(href="/products/#{p.id}") Comprar
+    
