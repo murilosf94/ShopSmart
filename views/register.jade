@@ -11,7 +11,7 @@ block content
 
       // Login Form
       .login-form-card
-        form#loginForm(method="post" action="/login")
+        form#loginForm(method="post" action="/register")
           // Username Field
           .form-group
             label(for="usuario") Usuário
@@ -20,7 +20,8 @@ block content
                 img(src="../images/icons/do-utilizador.png", alt="")
               input#usuario(
                 type="text" 
-                name="usuario" 
+                name="usuario"
+                id="usuario" 
                 required 
                 placeholder="Digite seu usuário"
               )
@@ -33,7 +34,8 @@ block content
                 img(src="../images/icons/bloquear-alt.png", alt="")
               input#senha(
                 type="password" 
-                name="senha" 
+                name="senha"
+                id="senha" 
                 required 
                 placeholder="Digite sua senha"
               )
