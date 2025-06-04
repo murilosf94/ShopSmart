@@ -4,7 +4,9 @@ html(lang="pt-BR")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title ShopSmart - Sua loja Online
-    link(rel="stylesheet", href="stylesheets/style.css")
+    link(rel="stylesheet", href="../stylesheets/style.css")
+    link(rel="stylesheet", href="../stylesheets/product.css")
+    link(rel="stylesheet", href="../stylesheets/form.css")
   body
     header.header
       // Top Bar
@@ -39,15 +41,18 @@ html(lang="pt-BR")
                   a.dropdown-item(href="/categorias/eletronicos") Eletrônicos
                 li
                   a.dropdown-item(href="/categorias/esportes") Esportes
-          a.nav-link(href="/contato") Contato
           
           //- Links condicionais para usuário
           if session.usuario
-            a.nav-link(href="/carrinho") Carrinho
             a.nav-link(href="products/new") Anunciar
             a.nav-link(href="/pedidos") Meus Pedidos
             if session.usuario.funcao === 'admin'
               a.nav-link(href="/dashboardadmin") Dashboard Admin
+
+          .search-container
+            .search-icon
+              img(src="../images/icons/procurar.png", alt="Buscar")
+            input.search-input(type="text" placeholder="Buscar produtos...")        
 
         .header-actions
           a.action-btn(href="#" title="Favoritos")
