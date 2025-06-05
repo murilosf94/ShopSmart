@@ -103,10 +103,12 @@ exports.update = async (req, res, next) => {
 
 
 exports.destroy = async (req, res, next) => {
+  
     console.log('>> destroy chamado para id =', req.params.id);
 
   try {
     const { id } = req.params;
+    
     await pool.execute('DELETE FROM products WHERE id = ?', [id]);
     res.redirect('/nossosprodutos');
   } catch (err) {
@@ -114,3 +116,5 @@ exports.destroy = async (req, res, next) => {
     next(err);
   }
 };
+
+

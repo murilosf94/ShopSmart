@@ -54,14 +54,14 @@ exports.add = async (req, res, next) => {
         const id_usuario       = req.params.id;
         const id_products      = req.params.id2;
         // Converta para número ou 0
-        const quantidade       =  1;
+        
         
         // 2) Agora envie valores SEM undefined
         await pool.execute(
           `INSERT INTO carrinho
-            (id_usuario, id_products, quantidade)
-           VALUES (?, ?, ?)`,
-          [id_usuario,id_products,quantidade]
+            (id_usuario, id_products)
+           VALUES (?, ?)`,
+          [id_usuario,id_products]
         );
         
         
@@ -85,7 +85,7 @@ exports.add = async (req, res, next) => {
       }
   };
 
-  exports.add2 = async (req, res, next) => {
+exports.add2 = async (req, res, next) => {
     const [carrinho] = await pool.query(
         'SELECT * FROM carrinho'
       );
@@ -125,14 +125,14 @@ exports.add = async (req, res, next) => {
         const id_usuario       = req.params.id;
         const id_products      = req.params.id2;
         // Converta para número ou 0
-        const quantidade       =  req.body.quantity;
+        
         
         // 2) Agora envie valores SEM undefined
         await pool.execute(
           `INSERT INTO carrinho
-            (id_usuario, id_products, quantidade)
-           VALUES (?, ?, ?)`,
-          [id_usuario,id_products,quantidade]
+            (id_usuario, id_products)
+           VALUES (?, ?)`,
+          [id_usuario,id_products]
         );
         
         
@@ -155,5 +155,42 @@ exports.add = async (req, res, next) => {
         next(err);
       }
   };
+
+exports.comprar = async (req, res, next) => {
+  
+    const id = req.params.id;
+    const id2 = req.params.id2;
+    const [compra] = await pool.query(
+        'SELECT * FROM products WHERE id = ?', [id]
+      );
+
+      
+    compra.forEach(async(c)=>{
+    
+     c.stock=c.stock-1;
+     
+
+      
+      
+              await pool.execute(
+                `UPDATE products
+                   SET stock = ?
+                 WHERE id = ?`,
+                [c.stock , c.id]
+              );
+  
+
+  try {
+    
+      await pool.execute('DELETE FROM carrinho WHERE id_products = ? AND id_usuario= ?', [id, id2]);
+   
+      } catch (err) {
+      console.error(err);
+      next(err);
+      }
+
+  });
+  res.render('comprado');
+};
 
   

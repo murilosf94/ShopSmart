@@ -66,7 +66,7 @@ html(lang="pt-BR")
             .notification-dot
           
           if session.usuario
-            a.action-btn(href="/carrinho" title="Carrinho")
+            a.action-btn(href="/carrinho/#{session.usuario.id}" title="Carrinho")
               span.action-icon
                 img(src="../images/icons/carrinho-de-compras.png", alt="Carrinho")
               .cart-badge 3
