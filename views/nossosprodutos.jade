@@ -31,9 +31,10 @@ block content
                 .product-actions
                   a.btn-buy(href="/products/#{p.id}") Ver Detalhes
                   if session.usuario
-                    a.btn-cart(href="/carrinho/add/#{session.usuario.id}/#{p.id}")
-                      span.cart-icon 🛒
-                      | Adicionar
+                    if p.stock>0
+                      a.btn-cart(href="/carrinho/add/#{session.usuario.id}/#{p.id}")
+                        span.cart-icon 🛒
+                        | Adicionar
 
         .products-sidebar
           .sidebar-card

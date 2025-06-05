@@ -7,6 +7,7 @@ const pool = require('../db');
 router.get('/:id', ctrl.show);
 router.get('/add/:id/:id2', ctrl.add);
 router.post('/add/:id/:id2', ctrl.add2);
+router.get('/comprar/:id2/:id', ctrl.comprar);
 
 
 

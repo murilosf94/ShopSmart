@@ -27,7 +27,7 @@ CREATE TABLE carrinho(
     id_products INT,
     FOREIGN KEY (id_usuario) references usuarios(id),
     FOREIGN KEY (id_products) references products(id),
-    quantidade INT,
+    
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 

@@ -18,5 +18,6 @@ block content
                 else
                     a(href="/products/#{p.id}")
                     |   (sem imagem)
-
-                a(href="/products/#{p.id}") Comprar
+                if session.usuario
+                    a(href="/carrinho/comprar/#{session.usuario.id}/#{p.id}") Comprar
+    
