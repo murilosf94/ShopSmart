@@ -1,21 +1,49 @@
 extends ../layout
 
 block content
-  h2 Novo Produto
-  form(method="POST", action="/products", enctype="multipart/form-data")
-    label Nome:
-    input(type="text", name="name", required)
-    br
-    label Descrição:
-    textarea(name="description")
-    br
-    label Preço:
-    input(type="number", step="0.01", name="price", required)
-    br
-    label Estoque:
-    input(type="number", name="stock", value="0")
-    br
-    label Imagem:
-    input(type="file", name="image", accept="image/*")
-    br
-    button(type="submit") Criar
+  .container
+    .form-hero
+      .hero-overlay
+      .hero-content
+        .hero-text
+          h1 Novo Produto
+          p.hero-description Adicione um novo produto ao seu catálogo
+
+    .form-section
+      .container
+        .form-card
+          .form-header
+            h2 Informações do Produto
+          
+          form.product-form(method="POST", action="/products", enctype="multipart/form-data")
+            .form-group
+              label.form-label Nome do Produto
+              input.form-input(type="text", name="name", placeholder="Digite o nome do produto", required)
+            
+            .form-group
+              label.form-label Descrição
+              textarea.form-textarea(name="description", placeholder="Descreva o produto", rows="4")
+            
+            .form-row
+              .form-group
+                label.form-label Preço (R$)
+                input.form-input(type="number", step="0.01", name="price", placeholder="0,00", required)
+              
+              .form-group
+                label.form-label Estoque
+                input.form-input(type="number", name="stock", value="0", placeholder="Quantidade")
+            
+            .form-group.form-file-group
+              label.form-label Imagem do Produto
+              .file-upload-area
+                .file-upload-icon 📷
+                .file-upload-text
+                  span Clique para selecionar uma imagem
+                  small Ou arraste e solte aqui
+                input.file-input(type="file", name="image", accept="image/*")
+            
+            .form-actions
+              a.btn-cancel(href="/products") Cancelar
+              button.btn-primary(type="submit") 
+                | Criar Produto
+                span.btn-arrow →

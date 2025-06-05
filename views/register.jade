@@ -11,7 +11,7 @@ block content
 
       // Login Form
       .login-form-card
-        form#loginForm(method="post" action="/login")
+        form#loginForm(method="post" action="/register")
           // Username Field
           .form-group
             label(for="usuario") Usuário
@@ -39,7 +39,7 @@ block content
               )
 
           // Submit Button
-          button.submit-btn(type="submit") Entrar
+          button.submit-btn(type="submit") Cadastrar
 
           // Social Login
           .social-login
@@ -64,29 +64,3 @@ block content
 
   script(src="/js/login.js")
   link(rel="stylesheet" href="../stylesheets/login.css")
-
-
-
-
-extends layout
-block content
-    .postagem
-        h1.corpadrao Cadastrar novo usuário
-        if error
-            p(style="color: red") #{error}
-        form(action="/register", method="post")
-            div
-            label(for="usuario") Usuário:
-            input(type="text", name="usuario", id="usuario", required)
-            div
-            label(for="senha") Senha:
-            input(type="password", name="senha", id="senha", required)
-            div
-            label(for="funcao") Função:
-            select(name="funcao", id="funcao")
-                option(value="user") user
-                option(value="admin") admin
-            div
-            button(type="submit") Cadastrar
-        p
-            a(href="/login") Já tem conta? Faça login
