@@ -1,4 +1,6 @@
-extends layout 
+extends layout
+
+
 block content
 
   #area-postagens
@@ -18,5 +20,6 @@ block content
                 else
                     a(href="/products/#{p.id}")
                     |   (sem imagem)
-
-                a(href="/products/#{p.id}") Comprar
+                if session.usuario
+                    a(href="/carrinho/comprar/#{session.usuario.id}/#{p.id}") Comprar
+    

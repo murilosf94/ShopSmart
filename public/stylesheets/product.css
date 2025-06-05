@@ -135,7 +135,6 @@
   font-weight: 600;
   font-size: 0.9rem;
   transition: all 0.3s ease;
-  border: 2px solid #dcfce7;
 }
 
 .btn-cart:hover {
@@ -260,4 +259,191 @@
   .category-item {
     justify-content: flex-start;
   }
+}
+
+/* Admin Products Listing Styles - Extending base products styles */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.admin-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0B3D2E;
+  margin: 0;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+/* Reuse sidebar-header styling for table header */
+.admin-thead {
+  background: #0B3D2E;
+  color: white;
+}
+
+.admin-th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.admin-th:last-child {
+  text-align: center;
+}
+
+.admin-tbody {
+  background: white;
+}
+
+.admin-row {
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-row:hover {
+  background: #f0fdf4;
+  transform: translateY(-1px);
+}
+
+.admin-cell {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+}
+
+.admin-cell-name {
+  font-weight: 600;
+  color: #0B3D2E;
+  font-size: 1.1rem;
+}
+
+.admin-cell-image {
+  text-align: left;
+}
+
+.image-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: inline-block;
+}
+
+.image-container:hover .product-image {
+  transform: scale(1.05);
+}
+
+.image-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  color: #666;
+  background: #f8f9fa;
+}
+
+.placeholder-text {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.admin-cell-stock {
+  text-align: center;
+}
+
+.stock-value {
+  display: inline-flex;
+  align-items: center;
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid #dcfce7;
+}
+
+.admin-cell-actions {
+  text-align: center;
+}
+
+/* Reuse product-actions layout */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Reuse btn-buy and btn-cart patterns */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Reuse btn-buy styling for view button */
+.btn-view {
+  background: #0B3D2E;
+  color: white;
+}
+
+.btn-view:hover {
+  background: #14563F;
+}
+
+/* Reuse btn-cart styling for edit button */
+.btn-edit {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 2px solid #dcfce7;
+}
+
+.btn-edit:hover {
+  background: #dcfce7;
+}
+
+.delete-form {
+  display: inline-block;
+}
+
+.btn-delete {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 2px solid #fecaca;
+}
+
+.btn-delete:hover {
+  background: #fecaca;
+}
+
+.btn-icon {
+  font-size: 1rem;
 }
