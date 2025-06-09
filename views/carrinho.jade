@@ -26,5 +26,5 @@ block content
                     strong Quantidade: #{c.quantidade}
                   
                   .product-actions
-                    a.btn-buy(href="/carrinho/comprado") Comprar
+                    a.btn-buy(href="/carrinho/comprar/#{session.usuario.id}/#{p.id}") Comprar
     
