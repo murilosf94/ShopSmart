@@ -28,6 +28,13 @@ var productsRouter   = require('./routes/products');  // CRUD de produtos
 
 var app = express();
 
+//Css set
+app.use('/css', express.static('stylesheets/form.css'));
+app.use('/css', express.static('stylesheets/login.css'));
+app.use('/css', express.static('stylesheets/product.css'));
+app.use('/css', express.static('stylesheets/style.css'));
+
+
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 
