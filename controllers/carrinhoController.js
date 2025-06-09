@@ -182,7 +182,7 @@ exports.comprar = async (req, res, next) => {
 
   try {
     
-      await pool.execute('DELETE FROM carrinho WHERE id_products = ? AND id_usuario= ?', [id, id2]);
+      await pool.execute('DELETE FROM carrinho WHERE id_products = ? AND id_usuario= ? LIMIT 1', [id, id2]);
    
       } catch (err) {
       console.error(err);
