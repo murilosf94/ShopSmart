@@ -45,7 +45,7 @@ html(lang="pt-BR")
           // Links condicionais para usuário
           if session.usuario
             a.nav-link(href="products/new") Anunciar
-            a.nav-link(href="/pedidos") Meus Pedidos
+            
             if session.usuario.funcao === 'admin'
               a.nav-link(href="/dashboardadmin") Dashboard
 
