@@ -1,25 +1,91 @@
 extends ../layout
 
 block content
-  h2 Editar Produto
-  form(method='POST', action=`/products/${product.id}?_method=PUT`, enctype="multipart/form-data")
-    
-    input(type="hidden", name="currentImageUrl", value=product.imageUrl)
+  section.products-hero
+    .container
+      h1.hero-title Editar Produto
 
+  section.products-section
+    .container
+      .edit-product-layout
+        main.edit-form-container
+          .form-card
+            .form-header
+              h2.form-title Informações do Produto
+              .form-subtitle Atualize os dados do produto abaixo
+            
+            .form-content
+              form.product-form(method='POST', action=`/products/${product.id}?_method=PUT`, enctype="multipart/form-data")
+                input(type="hidden", name="currentImageUrl", value=product.imageUrl)
+                
+                .form-grid
+                  .form-group.full-width
+                    label.form-label(for="name") Nome do Produto
+                    input.form-input(type='text', name='name', id="name", value=product.name, required, placeholder="Digite o nome do produto")
+                  
+                  .form-group.full-width
+                    label.form-label(for="description") Descrição
+                    textarea.form-textarea(name='description', id="description", rows="4", placeholder="Descreva as características do produto")= product.description
+                  
+                  .form-group
+                    label.form-label(for="price") Preço (R$)
+                    .input-wrapper
+                      span.input-prefix R$
+                      input.form-input.with-prefix(type='number', step='0.01', name='price', id="price", value=product.price, required, placeholder="0,00")
+                  
+                  .form-group
+                    label.form-label(for="stock") Estoque
+                    input.form-input(type='number', name='stock', id="stock", value=product.stock, placeholder="Quantidade disponível")
+                  
+                  .form-group.full-width
+                    label.form-label(for="image") Nova Imagem (opcional)
+                    .file-upload-wrapper
+                      input.file-input(type="file", name="image", id="image", accept="image/*")
+                      label.file-label(for="image")
+                        span.file-icon 📁
+                        span.file-text Escolher arquivo
+                      .file-hint Formatos aceitos: JPG, PNG, GIF (máx. 5MB)
+                
+                .form-actions
+                  button.btn-cancel(type="button", onclick="history.back()")
+                    span.btn-icon ←
+                    span Cancelar
+                  button.btn-save(type='submit')
+                    span.btn-icon 💾
+                    span Salvar Alterações
 
-    label Nome:
-    input(type='text', name='name', value=product.name, required)
-    br
-    label Descrição:
-    textarea(name='description')= product.description
-    br
-    label Preço:
-    input(type='number', step='0.01', name='price', value=product.price, required)
-    br
-    label Estoque:
-    input(type='number', name='stock', value=product.stock)
-    label Imagem (novo upload opcional):
-    input(type="file", name="image", accept="image/*")
-
-    br
-    button(type='submit') Salvar
+        aside.edit-sidebar
+          .sidebar-card
+            .sidebar-header
+              h3 Prévia do Produto
+            .sidebar-content
+              .product-preview
+                .preview-image-container
+                  if product.imageUrl
+                    img.preview-image(src=product.imageUrl, alt=product.name)
+                  else
+                    .preview-placeholder
+                      .placeholder-icon 📦
+                      span Sem imagem
+                
+                .preview-content
+                  h4.preview-title= product.name
+                  .preview-price R$ #{product.price}
+                  .preview-stock
+                    span.stock-label Estoque: 
+                    span.stock-value= product.stock
+          
+          .sidebar-card
+            .sidebar-header
+              h3 Ações Rápidas
+            .sidebar-content
+              .category-list
+                a.category-item(href=`/products/${product.id}`)
+                  span.category-icon 👁️
+                  span Ver Produto
+                a.category-item(href="/products")
+                  span.category-icon 📋
+                  span Lista de Produtos
+                a.category-item(href="/products/new")
+                  span.category-icon ➕
+                  span Novo Produto

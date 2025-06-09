@@ -4,9 +4,9 @@ html(lang="pt-BR")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title ShopSmart - Sua loja Online
-    link(rel="stylesheet", href="../stylesheets/style.css")
-    link(rel="stylesheet", href="../stylesheets/product.css")
-    link(rel="stylesheet", href="../stylesheets/form.css")
+    link(rel="stylesheet", href="/../stylesheets/style.css")
+    link(rel="stylesheet", href="/../stylesheets/product.css")
+    link(rel="stylesheet", href="/../stylesheets/form.css")
   body
     header.header
       // Top Bar
@@ -36,13 +36,13 @@ html(lang="pt-BR")
             .dropdown-menu
               ul.submenu 
                 li
-                  a.dropdown-item(href="/categorias/roupas") Roupas
+                  a.dropdown-item(href="/") Roupas
                 li
-                  a.dropdown-item(href="/categorias/eletronicos") Eletrônicos
+                  a.dropdown-item(href="/") Eletrônicos
                 li
-                  a.dropdown-item(href="/categorias/esportes") Esportes
+                  a.dropdown-item(href="/") Esportes
           
-          //- Links condicionais para usuário
+          // Links condicionais para usuário
           if session.usuario
             a.nav-link(href="products/new") Anunciar
             a.nav-link(href="/pedidos") Meus Pedidos
@@ -58,7 +58,6 @@ html(lang="pt-BR")
           a.action-btn(href="#" title="Favoritos")
             span.action-icon
               img(src="../images/icons/coracao.png", alt="Favoritos")
-            .cart-badge 2
 
           a.action-btn(href="#" title="Notificações")
             span.action-icon
@@ -69,7 +68,6 @@ html(lang="pt-BR")
             a.action-btn(href="/carrinho/#{session.usuario.id}" title="Carrinho")
               span.action-icon
                 img(src="../images/icons/carrinho-de-compras.png", alt="Carrinho")
-              .cart-badge 3
 
           if !session.usuario
             a.login-btn(href="/login") Login
@@ -90,9 +88,9 @@ html(lang="pt-BR")
         .footer-section
           h3 Categorias
           ul
-            li: a(href="/categorias/roupas") Moda
-            li: a(href="/categorias/eletronicos") Eletrônicos
-            li: a(href="/categorias/esportes") Esportes
+            li: a(href="/") Moda
+            li: a(href="/") Eletrônicos
+            li: a(href="/") Esportes
 
         .footer-section
           h3 Atendimento

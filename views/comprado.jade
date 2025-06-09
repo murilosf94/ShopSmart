@@ -1,9 +1,61 @@
 extends layout 
+
 block content
-
-  #area-postagens
-   
-          .postagem
-            h2 COMPRADO!
-
+  .products-hero
+    .container
+      h1.admin-title Compra Realizada com Sucesso!
+  
+  .products-section
+    .container
+      .admin-header
+        h2.admin-title Detalhes da sua compra
+        p Obrigado por comprar conosco! Seus produtos serão processados em breve.
+      
+      .products-layout
+        .products-grid
+          each c in carrinho
+            each p in products
+              if c.id_products === p.id
+                .product-card
+                  .product-image-container
+                    if p.imageUrl
+                      img.product-image(src=p.imageUrl, alt=p.name)
+                    else
+                      .product-placeholder
+                        .placeholder-icon 📦
+                        | Sem imagem
+                  
+                  .product-content
+                    h3.product-title #{p.name}
+                    
+                    .product-price R$ #{p.price}
+                    
+                    .product-quantity
+                      strong Quantidade: #{c.quantidade}
+                    
+                    .product-actions
+                      .stock-value
+                        | ✓ Comprado
+        
+        .products-sidebar
+          .sidebar-card
+            .sidebar-header
+              h3 Resumo da Compra
             
+            .sidebar-content
+              .category-list
+                .category-item
+                  .category-icon 📋
+                  | Status: Confirmado
+                
+                .category-item
+                  .category-icon 🚚
+                  | Entrega: 5-7 dias úteis
+                
+                .category-item
+                  .category-icon 📧
+                  | Email de confirmação enviado
+              
+              .product-actions(style="margin-top: 1rem;")
+                a.btn-buy(href="/") Voltar à Loja
+                a.btn-cart(href="/carrinho") Ver Carrinho
